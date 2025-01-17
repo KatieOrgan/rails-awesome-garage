@@ -3,12 +3,13 @@ class Car < ApplicationRecord
   has_many :reviews
   has_many :favourites
 
-  has_one_attached :photo
 
-  validates :brand, presence: true
-  validates :model, presence: true
-  validates :year, presence: true
-  validates :fuel, presence: true
+  validates :brand, :model, :fuel, presence: true
+  validates :year, presence: true, numericality: { only_integer: true }
   validates :owner_id, presence: true
 
 end
+
+# if we had has_many :reviews, dependent: destroy
+# this means if we dleete a car, all favouries
+# associated with it will be deleted from the db too
