@@ -5,12 +5,17 @@
 
  <%# this will make a line %>
 <hr>
+
+<div class="new-form">
+
 <h1>Write a Review</h1>
 <%= simple_form_for [@car, @review] do |f| %>
   <%= f.input :comment %>
   <%= f.input :rating, collection: 1..5 %>
   <%= f.submit "Add review" %>
 <% end %>
+
+</div>
 
 <h2>Reviews:</h2>
 <% @car.reviews.each do |review| %>

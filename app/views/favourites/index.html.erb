@@ -1,9 +1,27 @@
-<% @favourites.each do |favourite| %>
-<%= favourite.car.brand %>
 
-<%= link_to favourite_path(favourite),
+<div class="card-container">
+
+<div class="card-car" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url('https://images.unsplash.com/photo-1622665556164-1a41221d82ce?q=80&w=1315&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+
+<%= link_to favourite_path(@favourites),
     data: { turbo_method: :delete,
     turbo_confirm: "Are you sure?"}, class: "btn-delete" do %>
-  delete
+    <i class="fa-solid fa-trash"></i>
     <% end %>
+    
+<% @favourites.each do |favourite| %>
+
+      <div class="card-car-infos">
+      <div>
+        <h1><%= favourite.car.brand%></h1>
+        <h2><%= favourite.car.model%></h2>
+        <h3><%= favourite.car.fuel %></h3>
+      </div>
+        <h3><%= favourite.car.year %></h3>
 <% end %>
+
+
+      </div>
+  </div>
+</div>

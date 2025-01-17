@@ -1,0 +1,14 @@
+<div class="navbar-garage">
+    <%= link_to cars_path, class: "navbar-brand" do %>
+    <div class="logo_title">
+      <%= image_tag 'road_trip.jpg' %>
+      <h2>My Travel Garage</h2>
+      </div>
+      <% end %>
+
+      <div>
+        <%= link_to "Home", root_path %>
+        |
+        <%= link_to "My Favourites", cars_path %>
+      </div>
+</div>
